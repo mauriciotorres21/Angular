@@ -6,6 +6,8 @@ import { ModalService } from './detalle/modal.service';
 import Swal from 'sweetalert2'
 import {tap} from 'rxjs/operators'
 import { ActivatedRoute} from '@angular/router'
+import { AuthService } from '../usuarios/auth.service';
+import {URL_BACKEND} from '../config/config';
 
 @Component({
   selector: 'app-clientes',
@@ -26,9 +28,11 @@ export class ClientesComponent implements OnInit {
   ]
   paginador: any
   clienteSeleccionado: Cliente;
+  urlEndPont: string = URL_BACKEND;
 
   constructor(private clienteService: ClienteService, 
     private modalService: ModalService, 
+    private authService: AuthService,
     private activatedRoute: ActivatedRoute
     ) { }
 
